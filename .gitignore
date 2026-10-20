@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+*.chlz
+*.chls
+*.har
+*.apk
+*.xapk
+*.tgz
+.npmrc
+__pycache__/
+coverage/
+.DS_Store

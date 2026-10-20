@@ -1,0 +1,363 @@
+{
+  "application": {
+    "package_name": "se.scmv.morocco",
+    "name": "Avito",
+    "version_name": "10.1.0",
+    "version_code": "1539"
+  },
+  "baseApkSha256": "06eb8daa18d4a5b7613873c47961953205c6f1f34ed568e8c62bdc6a9ec2a9cc",
+  "method": "Static extraction from DEX string tables; APK not executed",
+  "operationCount": 70,
+  "operations": {
+    "AddToFavorites": {
+      "kind": "mutation",
+      "document": "mutation AddToFavorites($input: SaveAdInput!) { saveAd(input: $input) }",
+      "dex": "classes5.dex"
+    },
+    "AutoCompleteSearch": {
+      "kind": "query",
+      "document": "query AutoCompleteSearch($query: String!) { autoCompleteSearch(query: { text: $query } ) { suggestions { suggestion category { id name trackingValue } city { id name trackingValue } adType { key name } model { __typename ... on TextAdParam { id name textValue trackingValue paramRawValue } } brand { __typename ... on TextAdParam { id name textValue trackingValue paramRawValue } } phoneModel { __typename ... on TextAdParam { id name textValue trackingValue paramRawValue } } phoneBrand { __typename ... on TextAdParam { id name textValue trackingValue paramRawValue } } } } }",
+      "dex": "classes5.dex"
+    },
+    "BlockConversation": {
+      "kind": "mutation",
+      "document": "mutation BlockConversation($id: ID!) { blockConversation(id: $id) { success } }",
+      "dex": "classes5.dex"
+    },
+    "CancelOrderMutation": {
+      "kind": "mutation",
+      "document": "mutation CancelOrderMutation($id: ID!) { cancelOrder(id: $id) }",
+      "dex": "classes5.dex"
+    },
+    "CheckAccountExistanceQuery": {
+      "kind": "query",
+      "document": "query CheckAccountExistanceQuery($phone: String!) { checkAccountExistance(input: { phone: $phone } ) { doesAccountExist } }",
+      "dex": "classes5.dex"
+    },
+    "CheckActivationCodeQuery": {
+      "kind": "query",
+      "document": "query CheckActivationCodeQuery($input: CheckActivationCodeInput!) { checkActivationCode(input: $input) { isValid } }",
+      "dex": "classes5.dex"
+    },
+    "ClearConversation": {
+      "kind": "mutation",
+      "document": "mutation ClearConversation($id: ID!) { clearConversation(id: $id) { success } }",
+      "dex": "classes5.dex"
+    },
+    "CollectPerformanceEvent": {
+      "kind": "mutation",
+      "document": "mutation CollectPerformanceEvent($name: PerformanceEventName!, $adId: ID, $storeId: ID, $accountId: ID) { collectPerformanceEvent(event: { name: $name adId: $adId storeId: $storeId accountId: $accountId } ) { name adId storeId accountId } }",
+      "dex": "classes5.dex"
+    },
+    "CreateAdAppeal": {
+      "kind": "mutation",
+      "document": "mutation CreateAdAppeal($input: CreateAdAppealInput!) { createAdAppeal(input: $input) { success } }",
+      "dex": "classes5.dex"
+    },
+    "DeactivateAccountMutation": {
+      "kind": "mutation",
+      "document": "mutation DeactivateAccountMutation($input: DeactivateAccountInput!) { deactivateAccount(input: $input) { success } }",
+      "dex": "classes5.dex"
+    },
+    "FinalizePurchaseOrder": {
+      "kind": "mutation",
+      "document": "mutation FinalizePurchaseOrder($input: FinalizePurchaseOrderInput!) { finalizePurchaseOrder(input: $input) { paymentURL } }",
+      "dex": "classes5.dex"
+    },
+    "GetAccountAdQuery": {
+      "kind": "query",
+      "document": "query GetAccountAdQuery($adId: ID!) { getMyAd(adId: $adId) { media { images { paths { standard } } } title location { city { id name trackingValue } area { id name trackingValue } } description category { id name trackingValue } params { primary { __typename ...adParam } secondary { __typename ...adParam } } } }  fragment adParam on AdParam { __typename ... on TextAdParam { id name fullValue textValue trackingValue paramRawValue } ... on NumericAdParam { id name fullValue numericValue unit } ... on BooleanAdParam { id name booleanValue } }",
+      "dex": "classes5.dex"
+    },
+    "GetAccountOrdersQuery": {
+      "kind": "query",
+      "document": "query GetAccountOrdersQuery($query: MyPurchaseOrdersQuery!) { getMyPurchaseOrders(query: $query) { orders { id product { listId sku name thumbnail } unitsPurchased status date total paymentMethod } count { total } } }",
+      "dex": "classes5.dex"
+    },
+    "GetAccountSavedAdsQuery": {
+      "kind": "query",
+      "document": "query GetAccountSavedAdsQuery($page: Page!) { getMySavedAds(page: $page) { ads { __typename ...PublishedAdFragment } count { total } } }  fragment PublishedAdPrice on PublishedAd { isHotDeal isEcommerce discount price { withCurrency withoutCurrency } oldPrice { withCurrency withoutCurrency } monthlyPayment { withCurrency withoutCurrency __typename } }  fragment adParam on AdParam { __typename ... on TextAdParam { id name fullValue textValue trackingValue paramRawValue } ... on NumericAdParam { id name fullValue numericValue unit } ... on BooleanAdParam { id name booleanValue } }  fragment PublishedAdParam on PublishedAd { params { primary { __typename ...adParam } secondary { __typename ...adParam } extra { __typename ...adParam } } }  fragment PublishedAdFragment on PublishedAd { __typename adId listId title description listTime ...PublishedAdPrice discount media { defaultImage { paths { standard } } media { images { paths { standard smallThumbnail } } videos { defaultPath } } mediaCount } type { key name } category { id name trackingValue parent { id name trackingValue } } location { city { id name trackingValue } area { id name trackingValue } } seller { __typename ... on StoreProfile { storeId isVerifiedSeller name logo { defaultPath } phone { number verified } } ... on PrivateProfile { accountId name phone { number verified } } } ...PublishedAdParam isHighlighted isHotDeal isUrgent isInMyFavorites isEcommerce offersShipping sellerType }",
+      "dex": "classes5.dex"
+    },
+    "GetAccountStatisticsQuery": {
+      "kind": "query",
+      "document": "query GetAccountStatisticsQuery($range: MyPerformanceMetricsFixedRangeFilter!) { getMyPerformanceMetricsFixedRange(range: $range) { name data { x y } total } }",
+      "dex": "classes5.dex"
+    },
+    "GetActiveAndPendingReviewAds": {
+      "kind": "query",
+      "document": "query GetActiveAndPendingReviewAds($activeFilter: MyAdsFilterInput!, $pendingReviewFilter: MyAdsFilterInput!, $page: Page!) { activeAds: getMyAds(filters: $activeFilter, pagination: $page) { ads { __typename ...AdFields } count { total } } pendingReviewAds: getMyAds(filters: $pendingReviewFilter, pagination: $page) { ads { __typename ...AdFields } count { total } } }  fragment AdFields on MyAdSimple { status title adId listId discount labels editAdStatus type { name key } refusalReason location { city { name id } } price { withCurrency } publishedAt lastStateTime image { paths { smallThumbnail } } lastAppliedVasPack { endDate startDate name status category } vasPackages { count packages { name startDate endDate status category } } performance { phoneViews views conversations lastXDaysViews isLowPerformance } category { id name trackingValue parent { id trackingValue name } } }",
+      "dex": "classes5.dex"
+    },
+    "GetAdLimitationsQuery": {
+      "kind": "query",
+      "document": "query GetAdLimitationsQuery($request: CheckAdLimitationRepo!) { checkUserAdLimitationStatus(ad: $request) { userCategoryAdCount configuredCategoryFreeLimit configuredCategoryStoreLimit listingFee localizedListingFee categoryFree { id name trackingValue } categoryStore { id name trackingValue } } }",
+      "dex": "classes5.dex"
+    },
+    "GetChatConversationById": {
+      "kind": "query",
+      "document": "query GetChatConversationById($id: ID!, $size: Int!, $beforeTime: String = null , $afterTime: String = null ) { getMyChatConversation(query: { id: $id size: $size beforeTime: $beforeTime afterTime: $afterTime } ) { id partner { __typename ... on PrivateProfile { name } ... on StoreProfile { name logo { defaultPath } } } ad { __typename ...MessagingAdFragment } messages { __typename ...MessageFragment } isBlockedByMe unreadCount } }  fragment MessagingAdFragment on PublishedAd { adId title price { withoutCurrency withCurrency } listId price { withCurrency } media { defaultImage { paths { smallThumbnail } } } }  fragment MessageFragment on ChatMessage { id text attachment { url type } isUnread isMine time }",
+      "dex": "classes5.dex"
+    },
+    "GetChatConversationWithAd": {
+      "kind": "query",
+      "document": "query GetChatConversationWithAd($adId: String!) { getMyChatConversationWithAd(adId: $adId) { found conversationId } }",
+      "dex": "classes5.dex"
+    },
+    "GetConversationsList": {
+      "kind": "query",
+      "document": "query GetConversationsList($size: Int!, $beforeTime: String = null , $afterTime: String = null ) { getMyChat(query: { size: $size beforeTime: $beforeTime afterTime: $afterTime } ) { conversations { id partner { __typename ... on PrivateProfile { name } ... on StoreProfile { name logo { defaultPath } } } ad { __typename ...MessagingAdFragment } lastMessage { __typename ...MessageFragment } isBlockedByMe unreadCount } unreadCount } }  fragment MessagingAdFragment on PublishedAd { adId title price { withoutCurrency withCurrency } listId price { withCurrency } media { defaultImage { paths { smallThumbnail } } } }  fragment MessageFragment on ChatMessage { id text attachment { url type } isUnread isMine time }",
+      "dex": "classes5.dex"
+    },
+    "GetListingAds": {
+      "kind": "query",
+      "document": "query GetListingAds($text: String, $categoryId: Int, $adType: AdTypeKey, $hasImage: Boolean, $hasPrice: Boolean, $price: RangeFilter, $location: AdLocationFilter, $offersShipping: Boolean, $offersShippingWithinCity: Boolean, $isHotDeal: Boolean, $isUrgent: Boolean, $isEcommerce: Boolean, $isImmoneuf: Boolean, $isVerifiedSeller: Boolean, $params: ListingAdParamsFilters, $includeNewConstructionAds: Boolean, $extendPublishedAdsSearchIfNeeded: Boolean, $startNewScroll: Boolean!, $publishedAndNCAdsNextScrollId: String, $premiumAdsNextScrollId: String, $sort: [AdsSearchResultSort], $isStore: Boolean, $searchAlgorithm: SearchAlgorithm) { publishedAndNC: getListingAds(query: { filters: { ad: { text: $text categoryId: $categoryId type: $adType hasImage: $hasImage hasPrice: $hasPrice price: $price location: $location offersShipping: $offersShipping offersShippingWithinCity: $offersShippingWithinCity isHotDeal: $isHotDeal isUrgent: $isUrgent isEcommerce: $isEcommerce isImmoneuf: $isImmoneuf isVerifiedSeller: $isVerifiedSeller params: $params isPremium: false }  seller: { isStore: $isStore }  extension: { includeNewConstructionAds: $includeNewConstructionAds extendPublishedAdsSearchIfNeeded: $extendPublishedAdsSearchIfNeeded }  }  sort: $sort page: { size: 35 number: 0 }  metadata: { startNewScroll: $startNewScroll latestScrollID: $publishedAndNCAdsNextScrollId }  searchAlgorithm: $searchAlgorithm } ) { publishedAndNCAds: ads { publishedAndNCDetails: details { __typename ... on PublishedAd { __typename ...PublishedAdFragment } ... on NewConstructionAd { title price { withCurrency withoutCurrency } location { city { id name trackingValue } area { id name trackingValue } address } media { defaultImage { defaultPath } mediaCount } externalLink rooms bathrooms size } } searchExtension { extensionType } publishedAndNCMetadata: metadata { nextScrollId } } publishedAndNCAdsCount: count { total } } premium: getListingAds(query: { filters: { ad: { text: $text categoryId: $categoryId type: $adType hasImage: true hasPrice: $hasPrice price: $price location: $location offersShipping: $offersShipping offersShippingWithinCity: $offersShippingWithinCity isHotDeal: $isHotDeal isUrgent: $isUrgent isEcommerce: $isEcommerce isImmoneuf: $isImmoneuf isVerifiedSeller: $isVerifiedSeller params: $params isPremium: true }  seller: { isStore: $isStore }  extension: {  }  }  page: { size: 3 number: 0 }  metadata: { startNewScroll: $startNewScroll latestScrollID: $premiumAdsNextScrollId }  searchAlgorithm: $searchAlgorithm } ) { premiumAds: ads { premiumDetails: details { __typename ... on PublishedAd { __typename ...PublishedAdFragment } } premiumMetadata: metadata { nextScrollId } } } }  fragment PublishedAdPrice on PublishedAd { isHotDeal isEcommerce discount price { withCurrency withoutCurrency } oldPrice { withCurrency withoutCurrency } monthlyPayment { withCurrency withoutCurrency __typename } }  fragment adParam on AdParam { __typename ... on TextAdParam { id name fullValue textValue trackingValue paramRawValue } ... on NumericAdParam { id name fullValue numericValue unit } ... on BooleanAdParam { id name booleanValue } }  fragment PublishedAdParam on PublishedAd { params { primary { __typename ...adParam } secondary { __typename ...adParam } extra { __typename ...adParam } } }  fragment PublishedAdFragment on PublishedAd { __typename adId listId title description listTime ...PublishedAdPrice discount media { defaultImage { paths { standard } } media { images { paths { standard smallThumbnail } } videos { defaultPath } } mediaCount } type { key name } category { id name trackingValue parent { id name trackingValue } } location { city { id name trackingValue } area { id name trackingValue } } seller { __typename ... on StoreProfile { storeId isVerifiedSeller name logo { defaultPath } phone { number verified } } ... on PrivateProfile { accountId name phone { number verified } } } ...PublishedAdParam isHighlighted isHotDeal isUrgent isInMyFavorites isEcommerce offersShipping sellerType }",
+      "dex": "classes5.dex"
+    },
+    "GetListingAdsCount": {
+      "kind": "query",
+      "document": "query GetListingAdsCount($adFilter: ListingAdFilter, $includeNewConstructionAds: Boolean, $extendPublishedAdsSearchIfNeeded: Boolean, $seller: ListingSellerFilter) { getListingAds(query: { filters: { ad: $adFilter seller: $seller extension: { includeNewConstructionAds: $includeNewConstructionAds extendPublishedAdsSearchIfNeeded: $extendPublishedAdsSearchIfNeeded }  }  page: { size: 1 number: 1 }  } ) { count { total } } }",
+      "dex": "classes5.dex"
+    },
+    "GetLowPerformingAdsQuery": {
+      "kind": "query",
+      "document": "query GetLowPerformingAdsQuery { getLowPerformingAds { __typename ...AdFields } }  fragment AdFields on MyAdSimple { status title adId listId discount labels editAdStatus type { name key } refusalReason location { city { name id } } price { withCurrency } publishedAt lastStateTime image { paths { smallThumbnail } } lastAppliedVasPack { endDate startDate name status category } vasPackages { count packages { name startDate endDate status category } } performance { phoneViews views conversations lastXDaysViews isLowPerformance } category { id name trackingValue parent { id trackingValue name } } }",
+      "dex": "classes5.dex"
+    },
+    "GetMyAccountInfo": {
+      "kind": "query",
+      "document": "query GetMyAccountInfo { getMyAccountInfo { id name email phone { number isHidden } location { city { id name trackingValue } } registeredAt } }",
+      "dex": "classes5.dex"
+    },
+    "GetMyAdsCount": {
+      "kind": "query",
+      "document": "query GetMyAdsCount { getMyAdsCount { countByStatus { status count } } }",
+      "dex": "classes5.dex"
+    },
+    "GetMyAdsQuery": {
+      "kind": "query",
+      "document": "query GetMyAdsQuery($filter: MyAdsFilterInput!, $page: Page!) { getMyAds(filters: $filter, pagination: $page) { ads { __typename ...AdFields } count { total } } }  fragment AdFields on MyAdSimple { status title adId listId discount labels editAdStatus type { name key } refusalReason location { city { name id } } price { withCurrency } publishedAt lastStateTime image { paths { smallThumbnail } } lastAppliedVasPack { endDate startDate name status category } vasPackages { count packages { name startDate endDate status category } } performance { phoneViews views conversations lastXDaysViews isLowPerformance } category { id name trackingValue parent { id trackingValue name } } }",
+      "dex": "classes5.dex"
+    },
+    "GetMyFilteredAdsFacetsQuery": {
+      "kind": "query",
+      "document": "query GetMyFilteredAdsFacetsQuery($filter: MyFilteredAdsInput!, $page: Page!) { getMyFilteredAds(filters: $filter, pagination: $page) { facets { statuses { status count } categories { key name count } cities { key name count } params { paramKey paramName values { key name count } } adTypes { key name count } } count { total } } }",
+      "dex": "classes5.dex"
+    },
+    "GetMyFilteredAdsQuery": {
+      "kind": "query",
+      "document": "query GetMyFilteredAdsQuery($filter: MyFilteredAdsInput!, $page: Page!) { getMyFilteredAds(filters: $filter, pagination: $page) { ads { __typename ...AdFields } count { total } } }  fragment AdFields on MyAdSimple { status title adId listId discount labels editAdStatus type { name key } refusalReason location { city { name id } } price { withCurrency } publishedAt lastStateTime image { paths { smallThumbnail } } lastAppliedVasPack { endDate startDate name status category } vasPackages { count packages { name startDate endDate status category } } performance { phoneViews views conversations lastXDaysViews isLowPerformance } category { id name trackingValue parent { id trackingValue name } } }",
+      "dex": "classes5.dex"
+    },
+    "GetMySavedSearches": {
+      "kind": "query",
+      "document": "query GetMySavedSearches { getMySavedSearches { searches { id query savedTime title } } }",
+      "dex": "classes5.dex"
+    },
+    "GetPublishedAd": {
+      "kind": "query",
+      "document": "query GetPublishedAd($listID: String!) { getPublishedAd(query: { listId: $listID } ) { ad { __typename adId listId listTime sellerType title description reservedDays category { id name trackingValue parent { id name trackingValue parent { id name trackingValue } } } type { name key } ...PublishedAdPrice discount media { mediaCount defaultImage { paths { smallThumbnail largeThumbnail standard fullHd } } media { images { paths { smallThumbnail largeThumbnail standard fullHd } } videos { defaultPath } } } location { city { id name trackingValue } area { id name trackingValue } } seller { __typename ... on PrivateProfile { accountId name registrationDay phone { number verified } } ... on StoreProfile { storeId name registrationDay isVerifiedSeller location { address } phone { number verified } logo { defaultPath } website type numberOfActiveAds } } ...PublishedAdParam isHighlighted isInMyFavorites offersShipping isEcommerce isUrgent isHotDeal } similarAds { __typename adId listId title listTime sellerType isInMyFavorites isUrgent isHotDeal discount category { id name } location { city { id name } area { id name } } media { defaultImage { paths { largeThumbnail smallThumbnail standard } } mediaCount } ...PublishedAdPrice ...PublishedAdParam } } }  fragment PublishedAdPrice on PublishedAd { isHotDeal isEcommerce discount price { withCurrency withoutCurrency } oldPrice { withCurrency withoutCurrency } monthlyPayment { withCurrency withoutCurrency __typename } }  fragment adParam on AdParam { __typename ... on TextAdParam { id name fullValue textValue trackingValue paramRawValue } ... on NumericAdParam { id name fullValue numericValue unit } ... on BooleanAdParam { id name booleanValue } }  fragment PublishedAdParam on PublishedAd { params { primary { __typename ...adParam } secondary { __typename ...adParam } extra { __typename ...adParam } } }",
+      "dex": "classes5.dex"
+    },
+    "GetPurchaseOrderSummary": {
+      "kind": "query",
+      "document": "query GetPurchaseOrderSummary($input: PurchaseOrderSummaryInput!) { getPurchaseOrderSummary(input: $input) { items { ad { price { withCurrency withoutCurrency } title description adId media { defaultImage { paths { smallThumbnail } } } } quantity effectivePrice } shippingFee total availableECommercePaymentMethods } }",
+      "dex": "classes5.dex"
+    },
+    "GetUnreadCount": {
+      "kind": "query",
+      "document": "query GetUnreadCount { getMyChat(query: { size: 1 } ) { unreadCount } }",
+      "dex": "classes5.dex"
+    },
+    "GetVasPackagePrivate": {
+      "kind": "query",
+      "document": "query GetVasPackagePrivate($input: GetVasPackageInput!) { getVasPackage(input: $input) { __typename ...VasPackagesFragment } }  fragment VasPackagesFragment on VasPackagesResponse { categories { key title description image labels vasPackages { id durationDays price priceUnit originalPrice discountPercentage } } }",
+      "dex": "classes5.dex"
+    },
+    "GetVasPackageShop": {
+      "kind": "query",
+      "document": "query GetVasPackageShop($input: GetVasPackageInput!) { getVasPackage(input: $input) { __typename ...VasPackagesFragment ...VasExecutionSlotsFragment } }  fragment VasPackagesFragment on VasPackagesResponse { categories { key title description image labels vasPackages { id durationDays price priceUnit originalPrice discountPercentage } } }  fragment VasExecutionSlotsFragment on VasPackagesResponse { availableExecutionSlots { days hours { id start end } } }",
+      "dex": "classes5.dex"
+    },
+    "GetVasPackagesPrivate": {
+      "kind": "query",
+      "document": "query GetVasPackagesPrivate($input: GetVasPackagesInput!) { getVasPackages(input: $input) { __typename ...VasPackagesFragment } }  fragment VasPackagesFragment on VasPackagesResponse { categories { key title description image labels vasPackages { id durationDays price priceUnit originalPrice discountPercentage } } }",
+      "dex": "classes5.dex"
+    },
+    "GetVasPackagesShop": {
+      "kind": "query",
+      "document": "query GetVasPackagesShop($input: GetVasPackagesInput!) { getVasPackages(input: $input) { __typename ...VasPackagesFragment ...VasExecutionSlotsFragment } }  fragment VasPackagesFragment on VasPackagesResponse { categories { key title description image labels vasPackages { id durationDays price priceUnit originalPrice discountPercentage } } }  fragment VasExecutionSlotsFragment on VasPackagesResponse { availableExecutionSlots { days hours { id start end } } }",
+      "dex": "classes5.dex"
+    },
+    "InboxChattingSubscription": {
+      "kind": "subscription",
+      "document": "subscription InboxChattingSubscription($token: String!) { subscribe(token: $token) { title event { __typename ... on MessageReceived { id conversationId text attachment { url type } time } } } }",
+      "dex": "classes5.dex"
+    },
+    "InitiateOrderMutation": {
+      "kind": "mutation",
+      "document": "mutation InitiateOrderMutation($input: InitOrderInput!) { initiateOrder(input: $input) { paymentLink paymentCode expiryDate } }",
+      "dex": "classes5.dex"
+    },
+    "LoginByIdentifierMutation": {
+      "kind": "mutation",
+      "document": "mutation LoginByIdentifierMutation($identifier: String!, $pass: String!) { loginByIdentifier(identifier: $identifier, password: $pass) { accessToken refreshToken } }",
+      "dex": "classes5.dex"
+    },
+    "LoginWithAppleMutation": {
+      "kind": "mutation",
+      "document": "mutation LoginWithAppleMutation($token: String!, $name: String) { loginWithApple(token: $token, name: $name) { accessToken refreshToken } }",
+      "dex": "classes5.dex"
+    },
+    "LoginWithGoogleMutation": {
+      "kind": "mutation",
+      "document": "mutation LoginWithGoogleMutation($token: String!) { loginWithGoogle(token: $token) { accessToken refreshToken } }",
+      "dex": "classes5.dex"
+    },
+    "LogoutMutation": {
+      "kind": "mutation",
+      "document": "mutation LogoutMutation { logout: logout }",
+      "dex": "classes5.dex"
+    },
+    "MakeConversationAsRead": {
+      "kind": "mutation",
+      "document": "mutation MakeConversationAsRead($id: ID!) { markConversationAsRead(id: $id) { success } }",
+      "dex": "classes5.dex"
+    },
+    "RegisterAccount": {
+      "kind": "mutation",
+      "document": "mutation RegisterAccount($registerAccountInput: RegisterAccountInput!) { registerAccount(input: $registerAccountInput) { info { id name email phone { number isHidden } location { city { id name trackingValue } address } registeredAt } login { accessToken refreshToken } } }",
+      "dex": "classes5.dex"
+    },
+    "RegisterFirebaseTokenMutation": {
+      "kind": "mutation",
+      "document": "mutation RegisterFirebaseTokenMutation($token: FirebaseTokenInput!) { registerFirebaseToken(token: $token) { success } }",
+      "dex": "classes5.dex"
+    },
+    "RemoveFromFavorites": {
+      "kind": "mutation",
+      "document": "mutation RemoveFromFavorites($input: UnsaveAdInput!) { unsaveAd(input: $input) }",
+      "dex": "classes5.dex"
+    },
+    "RequestAccountRecoveryByEmailMutation": {
+      "kind": "mutation",
+      "document": "mutation RequestAccountRecoveryByEmailMutation($input: RequestAccountRecoveryInput!) { requestAccountRecovery(input: $input) { email } }",
+      "dex": "classes5.dex"
+    },
+    "RequestAccountRecoveryByPhoneMutation": {
+      "kind": "mutation",
+      "document": "mutation RequestAccountRecoveryByPhoneMutation($input: RequestAccountRecoveryByPhoneInput!) { requestAccountRecoveryByPhone(input: $input) { phone } }",
+      "dex": "classes5.dex"
+    },
+    "RequestPhoneVerificationByPhoneMutation": {
+      "kind": "mutation",
+      "document": "mutation RequestPhoneVerificationByPhoneMutation($input: RequestPhoneVerificationCodeInput!) { requestPhoneVerification(input: $input) { phone } }",
+      "dex": "classes5.dex"
+    },
+    "ResetMyPasswordMutation": {
+      "kind": "mutation",
+      "document": "mutation ResetMyPasswordMutation($input: ResetMyPasswordInput!) { resetMyPassword(input: $input) { code } }",
+      "dex": "classes5.dex"
+    },
+    "SaveSearchMutation": {
+      "kind": "mutation",
+      "document": "mutation SaveSearchMutation($input: SaveSearchInput!) { saveSearch(input: $input) { id query } }",
+      "dex": "classes5.dex"
+    },
+    "SendChatMessage": {
+      "kind": "mutation",
+      "document": "mutation SendChatMessage($message: SendChatMessageInput!) { sendChatMessage(message: $message) { success conversation { id message { __typename ...MessageFragment } isNew } } }  fragment MessageFragment on ChatMessage { id text attachment { url type } isUnread isMine time }",
+      "dex": "classes5.dex"
+    },
+    "SendFirstChatMessage": {
+      "kind": "mutation",
+      "document": "mutation SendFirstChatMessage($message: SendChatMessageInput!) { sendChatMessage(message: $message) { success conversation { id message { id text isMine time attachment { url type } } isNew } } }",
+      "dex": "classes5.dex"
+    },
+    "SubmitAdMutation": {
+      "kind": "mutation",
+      "document": "mutation SubmitAdMutation($ad: SubmitAdInput!) { submitAd(ad: $ad) { adId } }",
+      "dex": "classes5.dex"
+    },
+    "UnblockConversation": {
+      "kind": "mutation",
+      "document": "mutation UnblockConversation($id: ID!) { unblockConversation(id: $id) { success } }",
+      "dex": "classes5.dex"
+    },
+    "UnsaveSearchMutation": {
+      "kind": "mutation",
+      "document": "mutation UnsaveSearchMutation($input: UnsaveSearchInput!) { unsaveSearch(input: $input) { query } }",
+      "dex": "classes5.dex"
+    },
+    "UpdateMyAccountInfoMutation": {
+      "kind": "mutation",
+      "document": "mutation UpdateMyAccountInfoMutation($input: UpdateMyAccountInfoInput!) { updateMyAccountInfo(input: $input) { id name email phone { number isHidden } location { city { id name trackingValue } } registeredAt } }",
+      "dex": "classes5.dex"
+    },
+    "UpdateMyPasswordMutation": {
+      "kind": "mutation",
+      "document": "mutation UpdateMyPasswordMutation($input: UpdateMyPasswordInput!) { updateMyPassword(input: $input) { id } }",
+      "dex": "classes5.dex"
+    },
+    "UpdateMyStoreInfoMutation": {
+      "kind": "mutation",
+      "document": "mutation UpdateMyStoreInfoMutation($input: UpdateMyStoreInfoInput!) { updateMyStoreInfo(input: $input) { name locations { address } website description { short long } phones { number } } }",
+      "dex": "classes5.dex"
+    },
+    "UploadAdMediaMutation": {
+      "kind": "mutation",
+      "document": "mutation UploadAdMediaMutation($request: AdMediaUploadInput!) { uploadAdMedia(request: $request) { id } }",
+      "dex": "classes5.dex"
+    },
+    "activateAd": {
+      "kind": "mutation",
+      "document": "mutation activateAd($adId: String!) { ActivateAd(adId: $adId) { adId error { label code } } }",
+      "dex": "classes5.dex"
+    },
+    "bulkDeactivateAds": {
+      "kind": "mutation",
+      "document": "mutation bulkDeactivateAds($adIds: [String!]!, $reason: DeactivationReasonInput!) { bulkDeactivateAds(adIds: $adIds, reason: $reason) { adId error { code label } } }",
+      "dex": "classes5.dex"
+    },
+    "generateAd": {
+      "kind": "mutation",
+      "document": "mutation generateAd($input: GenerateAdInput!) { generateAd(input: $input) { description } }",
+      "dex": "classes5.dex"
+    },
+    "generateAdCategories": {
+      "kind": "mutation",
+      "document": "mutation generateAdCategories($input: GenerateAdInput!) { generateAd(input: $input) { categoryIds } }",
+      "dex": "classes5.dex"
+    },
+    "getAdForEdit": {
+      "kind": "query",
+      "document": "query getAdForEdit($adId: ID!) { getAdForEdit(adId: $adId) { category price type title description name phone phoneHidden location { city area address } params { __typename ... on AdEditNumericParam { id numericValue: numericValue } ... on AdEditBooleanParam { id booleanValue: booleanValue } ... on AdEditListKeyParam { id keyValue: keyValue } } isSifm media { images { id defaultPath } videos { id defaultPath } } } }",
+      "dex": "classes5.dex"
+    },
+    "getEcommerceDetails": {
+      "kind": "query",
+      "document": "query getEcommerceDetails($adId: ID!) { getECommerceProductInfo(adId: $adId) { itemsLeft itemsSold discount } }",
+      "dex": "classes5.dex"
+    },
+    "getListingAdByStoreId": {
+      "kind": "query",
+      "document": "query getListingAdByStoreId($filters: ListingAdsSearchFilters, $sortOrder: SortOrder!, $adProperty: AdSortProperty!, $page: Page!, $metadata: SearchQueryMetadata) { getListingAds(query: { filters: $filters sort: { adProperty: $adProperty sortOrder: $sortOrder }  page: $page metadata: $metadata } ) { count { total } ads { details { __typename ... on PublishedAd { __typename ...PublishedAdFragment } } searchExtension { extensionType } metadata { nextScrollId } } } }  fragment PublishedAdPrice on PublishedAd { isHotDeal isEcommerce discount price { withCurrency withoutCurrency } oldPrice { withCurrency withoutCurrency } monthlyPayment { withCurrency withoutCurrency __typename } }  fragment adParam on AdParam { __typename ... on TextAdParam { id name fullValue textValue trackingValue paramRawValue } ... on NumericAdParam { id name fullValue numericValue unit } ... on BooleanAdParam { id name booleanValue } }  fragment PublishedAdParam on PublishedAd { params { primary { __typename ...adParam } secondary { __typename ...adParam } extra { __typename ...adParam } } }  fragment PublishedAdFragment on PublishedAd { __typename adId listId title description listTime ...PublishedAdPrice discount media { defaultImage { paths { standard } } media { images { paths { standard smallThumbnail } } videos { defaultPath } } mediaCount } type { key name } category { id name trackingValue parent { id name trackingValue } } location { city { id name trackingValue } area { id name trackingValue } } seller { __typename ... on StoreProfile { storeId isVerifiedSeller name logo { defaultPath } phone { number verified } } ... on PrivateProfile { accountId name phone { number verified } } } ...PublishedAdParam isHighlighted isHotDeal isUrgent isInMyFavorites isEcommerce offersShipping sellerType }",
+      "dex": "classes5.dex"
+    },
+    "getMyStoreInfo": {
+      "kind": "query",
+      "document": "query getMyStoreInfo($storeId: ID!) { getMyStoreInfo(storeId: $storeId) { name email category { id name trackingValue } phones { number } description { short long } locations { city { id name trackingValue } address } startDate expiryDate logo { defaultPath } points { count expiryDate } website category { id name } offersDelivery extraMediaAllowed membership { id name } isVerifiedSeller } }",
+      "dex": "classes5.dex"
+    },
+    "getStoreDetails": {
+      "kind": "query",
+      "document": "query getStoreDetails($storeId: String!) { getStoreDetails(query: { storeID: $storeId } ) { __typename ... on StoreProfile { storeId isVerifiedSeller numberOfActiveAds name registrationDay logo { defaultPath } cover { defaultPath } latestActiveAdsImages { paths { standard } } website phone { number } description { long short } adFiltersAllowed displayLabel location { city { name } address } category { id name trackingValue } } } }",
+      "dex": "classes5.dex"
+    },
+    "patchAd": {
+      "kind": "mutation",
+      "document": "mutation patchAd($ad: PatchAdInput!) { patchAd(ad: $ad) { adId } }",
+      "dex": "classes5.dex"
+    }
+  }
+}
