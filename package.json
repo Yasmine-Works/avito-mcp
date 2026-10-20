@@ -2,7 +2,7 @@
   "name": "avito-ma-mcp",
   "version": "0.2.0",
   "description": "Unofficial Avito.ma MCP server for public search, listings, messaging, favorites and boosts.",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Yasmine-Works/avito-mcp.git"
@@ -17,6 +17,7 @@
   "files": [
     "dist/**/*.js",
     "README.md",
+    "LICENSE",
     "docs/clients.md",
     "docs/usage.fr.md",
     ".env.example"

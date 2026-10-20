@@ -152,4 +152,4 @@ There is no arbitrary GraphQL execution tool.
 
 ## License
 
-No open-source license has been granted. The package is currently marked `UNLICENSED`.
+[MIT](LICENSE).
